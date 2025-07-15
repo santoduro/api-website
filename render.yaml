@@ -1,0 +1,13 @@
+# Questo file dice a Render come configurare il tuo sito.
+services:
+  - type: static
+    name: api-website # Il nome del tuo servizio su Render
+    env: static
+    branch: main # Il branch da cui fare il deploy
+    staticPublishPath: ./ # La cartella da pubblicare
+    headers:
+      # Questa regola dice a tutti i browser di non salvare mai una copia
+      # del sito, risolvendo il problema della cache.
+      - path: /*
+        name: Cache-Control
+        value: no-cache, no-store, must-revalidate
