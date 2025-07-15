@@ -1,12 +1,14 @@
 services:
-  # Definizione del servizio per il sito statico
-  - type: static_site
+  # Definiamo il servizio come un "web service" generico...
+  - type: web
     name: api-website
-    env: static
-    branch: main
-    # Directory da pubblicare
-    publishDir: ./
-    # Istruzioni per la cache
+    env: static # ...ma specifichiamo che l'ambiente è statico.
+    
+    # Questo dice a Render di servire i file dalla cartella principale
+    # senza eseguire un comando di avvio. È la chiave per un sito statico.
+    staticPublishPath: ./
+    
+    # Aggiungiamo le istruzioni per la cache
     headers:
       - path: "/*"
         name: "Cache-Control"
