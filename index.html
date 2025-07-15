@@ -1,399 +1,382 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="it"> <!-- La classe 'dark' verrà aggiunta da JS -->
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2299.7">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000; min-height: 14.0px}
-    span.s1 {font-kerning: none}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CompleteAPI - La Tua Piattaforma API</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Stili di base (Tema Chiaro) */
+        body {
+            background-color: #f8fafc; /* slate-50 */
+            color: #0f172a; /* slate-900 */
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e2e8f0; /* slate-200 */
+        }
+        .input-field {
+            @apply w-full bg-slate-100 border border-slate-300 rounded-lg py-2 px-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500;
+        }
+        .nav-link {
+            @apply text-slate-600 hover:text-slate-900;
+        }
+        .card {
+             @apply bg-white border border-slate-200 rounded-xl;
+        }
+
+        /* Stili Tema Scuro */
+        .dark body {
+            background-color: #0f172a; /* slate-900 */
+            color: #cbd5e1; /* slate-300 */
+        }
+        .dark .glass-effect {
+            background: rgba(30, 41, 59, 0.5); /* slate-800 con trasparenza */
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(51, 65, 85, 0.5); /* slate-700 con trasparenza */
+        }
+        .dark .input-field {
+            @apply bg-slate-800 border-slate-600 text-slate-200;
+        }
+        .dark .nav-link {
+            @apply text-slate-300 hover:text-white;
+        }
+        .dark .card {
+            @apply bg-slate-800/50 border-slate-700;
+        }
+
+        .btn-primary {
+            @apply bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-75 transition-all duration-200;
+        }
+        .btn-secondary {
+            @apply bg-slate-200 text-slate-800 font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-opacity-75;
+        }
+        .dark .btn-secondary {
+            @apply bg-slate-700 text-slate-200 hover:bg-slate-600 focus:ring-slate-500;
+        }
+        
+        .page { display: none; }
+        .page.active { display: block; }
+    </style>
 </head>
-<body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;html lang="it"&gt; &lt;!-- La classe 'dark' verrà aggiunta da JS --&gt;</span></p>
-<p class="p1"><span class="s1">&lt;head&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;CompleteAPI - La Tua Piattaforma API&lt;/title&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>tailwind.config = {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>darkMode: 'class',</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>theme: {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>extend: {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>fontFamily: {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>sans: ['Inter', 'sans-serif'],</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>},</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;style&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* Stili di base (Tema Chiaro) */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>body {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: #f8fafc; /* slate-50 */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #0f172a; /* slate-900 */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.glass-effect {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: rgba(255, 255, 255, 0.8);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>backdrop-filter: blur(10px);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-bottom: 1px solid #e2e8f0; /* slate-200 */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.input-field {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>@apply w-full bg-slate-100 border border-slate-300 rounded-lg py-2 px-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.nav-link {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>@apply text-slate-600 hover:text-slate-900;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.card {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">             </span>@apply bg-white border border-slate-200 rounded-xl;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* Stili Tema Scuro */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.dark body {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: #0f172a; /* slate-900 */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #cbd5e1; /* slate-300 */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.dark .glass-effect {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: rgba(30, 41, 59, 0.5); /* slate-800 con trasparenza */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>backdrop-filter: blur(10px);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-bottom: 1px solid rgba(51, 65, 85, 0.5); /* slate-700 con trasparenza */</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.dark .input-field {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>@apply bg-slate-800 border-slate-600 text-slate-200;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.dark .nav-link {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>@apply text-slate-300 hover:text-white;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.dark .card {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>@apply bg-slate-800/50 border-slate-700;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.btn-primary {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>@apply bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-75 transition-all duration-200;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.btn-secondary {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>@apply bg-slate-200 text-slate-800 font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-opacity-75;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.dark .btn-secondary {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>@apply bg-slate-700 text-slate-200 hover:bg-slate-600 focus:ring-slate-500;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.page { display: none; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.page.active { display: block; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;body class="min-h-screen font-sans"&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;!-- Header --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;header class="sticky top-0 z-50 glass-effect"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;nav class="container mx-auto px-6 py-4 flex justify-between items-center"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;a href="#home" class="text-2xl font-bold dark:text-white"&gt;CompleteAPI&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="hidden md:flex items-center space-x-6"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;a href="#home" class="nav-link"&gt;Home&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;a href="#pricing" class="nav-link"&gt;Prezzi&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;a href="#docs" class="nav-link"&gt;Documentazione&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="flex items-center space-x-4"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div id="auth-buttons" class="space-x-2"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#login" class="btn-secondary"&gt;Login&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#register" class="btn-primary"&gt;Registrati&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div id="user-menu" class="hidden items-center space-x-4"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;span id="user-email" class="font-medium dark:text-white"&gt;&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;a href="#dashboard" class="btn-primary"&gt;Dashboard&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;button id="logout-btn" class="btn-secondary"&gt;Logout&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;!-- Theme Toggle Button --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;button id="theme-toggle" class="p-2 rounded-full text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"&gt;&lt;path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"&gt;&lt;/path&gt;&lt;/svg&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"&gt;&lt;path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.707.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm-.707 10.607a1 1 0 010-1.414l.707-.707a1 1 0 111.414 1.414l-.707.707a1 1 0 01-1.414 0zM3 11a1 1 0 100-2H2a1 1 0 100 2h1z"&gt;&lt;/path&gt;&lt;/svg&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/nav&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/header&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;main class="container mx-auto px-6 py-12"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- Home Page --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div id="home" class="page active"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;section class="text-center"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;h1 class="text-4xl md:text-6xl font-bold dark:text-white leading-tight"&gt;Potenzia le Tue Applicazioni con Dati Istantanei&lt;/h1&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p class="mt-4 text-lg text-slate-500 dark:text-slate-400 max-w-2xl mx-auto"&gt;La nostra API fornisce accesso in tempo reale a dati finanziari, blockchain e molto altro. Veloce, affidabile e facile da integrare.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="mt-8"&gt;&lt;a href="#pricing" class="btn-primary text-lg px-8 py-3"&gt;Inizia Ora - È Gratis&lt;/a&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/section&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- Pricing Page --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div id="pricing" class="page"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;section&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-3xl font-bold text-center dark:text-white"&gt;Piani Tariffari Semplici&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p class="text-center mt-2 text-slate-500 dark:text-slate-400"&gt;Scegli il piano perfetto per le tue esigenze.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="mt-10 grid md:grid-cols-3 gap-8"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="card p-8 text-center"&gt;&lt;h3 class="text-2xl font-semibold dark:text-white"&gt;Free&lt;/h3&gt;&lt;p class="mt-4 text-4xl font-bold dark:text-white"&gt;€0&lt;span class="text-lg font-medium text-slate-500 dark:text-slate-400"&gt;/mese&lt;/span&gt;&lt;/p&gt;&lt;ul class="mt-6 space-y-4 text-slate-600 dark:text-slate-300"&gt;&lt;li&gt;50 Richieste/giorno&lt;/li&gt;&lt;li&gt;Accesso agli endpoint base&lt;/li&gt;&lt;li&gt;Supporto via community&lt;/li&gt;&lt;/ul&gt;&lt;a href="#register" class="mt-8 block btn-secondary w-full"&gt;Inizia Gratis&lt;/a&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="card p-8 text-center border-2 border-indigo-500 relative"&gt;&lt;span class="absolute top-0 -translate-y-1/2 bg-indigo-500 text-white text-sm font-semibold px-3 py-1 rounded-full"&gt;Più Popolare&lt;/span&gt;&lt;h3 class="text-2xl font-semibold dark:text-white"&gt;Pro&lt;/h3&gt;&lt;p class="mt-4 text-4xl font-bold dark:text-white"&gt;€10&lt;span class="text-lg font-medium text-slate-500 dark:text-slate-400"&gt;/mese&lt;/span&gt;&lt;/p&gt;&lt;ul class="mt-6 space-y-4 text-slate-600 dark:text-slate-300"&gt;&lt;li&gt;10.000 Richieste/giorno&lt;/li&gt;&lt;li&gt;Accesso a tutti gli endpoint&lt;/li&gt;&lt;li&gt;Supporto prioritario via email&lt;/li&gt;&lt;/ul&gt;&lt;a href="#register" class="mt-8 block btn-primary w-full"&gt;Passa a Pro&lt;/a&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="card p-8 text-center"&gt;&lt;h3 class="text-2xl font-semibold dark:text-white"&gt;Unlimited&lt;/h3&gt;&lt;p class="mt-4 text-4xl font-bold dark:text-white"&gt;€50&lt;span class="text-lg font-medium text-slate-500 dark:text-slate-400"&gt;/mese&lt;/span&gt;&lt;/p&gt;&lt;ul class="mt-6 space-y-4 text-slate-600 dark:text-slate-300"&gt;&lt;li&gt;50.000 Richieste/giorno&lt;/li&gt;&lt;li&gt;Accesso a tutti gli endpoint&lt;/li&gt;&lt;li&gt;Accesso anticipato a nuove feature&lt;/li&gt;&lt;/ul&gt;&lt;a href="#register" class="mt-8 block btn-secondary w-full"&gt;Scegli Unlimited&lt;/a&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/section&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- Docs Page --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div id="docs" class="page"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-3xl font-bold text-center dark:text-white"&gt;Documentazione&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;p class="text-center mt-2 text-slate-500 dark:text-slate-400"&gt;La tua API live fornisce automaticamente una documentazione interattiva. Visita &lt;a href="#" id="docs-link" target="_blank" class="text-indigo-500 dark:text-indigo-400 hover:underline"&gt;il tuo URL API seguito da /docs&lt;/a&gt; per provarla.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- Login Page --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div id="login" class="page"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="max-w-md mx-auto card p-8"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-2xl font-bold text-white text-center"&gt;Login&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;form id="login-form" class="mt-6 space-y-4"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div&gt;&lt;label for="login-email" class="block text-sm font-medium text-slate-300"&gt;Email&lt;/label&gt;&lt;input type="email" id="login-email" class="input-field" required&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div&gt;&lt;label for="login-password" class="block text-sm font-medium text-slate-300"&gt;Password&lt;/label&gt;&lt;input type="password" id="login-password" class="input-field" required&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;button type="submit" class="btn-primary w-full"&gt;Accedi&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/form&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div id="login-error" class="mt-4 text-red-400 text-center"&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- Register Page --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div id="register" class="page"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="max-w-md mx-auto card p-8"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-2xl font-bold text-white text-center"&gt;Crea un Account&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;form id="register-form" class="mt-6 space-y-4"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div&gt;&lt;label for="register-name" class="block text-sm font-medium text-slate-300"&gt;Nome Completo&lt;/label&gt;&lt;input type="text" id="register-name" class="input-field" required&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div&gt;&lt;label for="register-email" class="block text-sm font-medium text-slate-300"&gt;Email&lt;/label&gt;&lt;input type="email" id="register-email" class="input-field" required&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div&gt;&lt;label for="register-password" class="block text-sm font-medium text-slate-300"&gt;Password&lt;/label&gt;&lt;input type="password" id="register-password" class="input-field" required&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;button type="submit" class="btn-primary w-full"&gt;Registrati&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/form&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div id="register-message" class="mt-4 text-center"&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- Dashboard Page --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div id="dashboard" class="page"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-3xl font-bold dark:text-white"&gt;La Tua Dashboard&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="mt-8 grid md:grid-cols-2 gap-8"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="card p-6"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-xl font-semibold dark:text-white"&gt;La Tua API Key&lt;/h3&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;p class="text-slate-500 dark:text-slate-400 mt-2"&gt;Usa questa chiave nell'header `X-API-Key` delle tue richieste.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="mt-4 flex items-center space-x-2 bg-slate-100 dark:bg-slate-900 p-3 rounded-lg"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;input id="api-key-field" type="text" class="bg-transparent w-full text-slate-800 dark:text-slate-200 font-mono" readonly&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;button id="copy-key-btn" class="text-slate-400 hover:text-white"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /&gt;&lt;/svg&gt;&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                     </span>&lt;button id="regenerate-key-btn" class="mt-4 btn-secondary"&gt;Rigenera Chiave&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="card p-6"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-xl font-semibold dark:text-white"&gt;Utilizzo Giornaliero&lt;/h3&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;p class="text-slate-500 dark:text-slate-400 mt-2"&gt;Piano attuale: &lt;span id="plan-name" class="font-semibold text-indigo-500 dark:text-indigo-400"&gt;&lt;/span&gt;&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="mt-4"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-4"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;div id="usage-bar" class="bg-indigo-600 h-4 rounded-full" style="width: 0%;"&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;p id="usage-text" class="text-right text-sm text-slate-500 dark:text-slate-400 mt-2"&gt;0 / 0 richieste&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/main&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>document.addEventListener('DOMContentLoaded', () =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const API_BASE_URL = 'https://completeapi-03it.onrender.com';</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const pages = document.querySelectorAll('.page');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const authButtons = document.getElementById('auth-buttons');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const userMenu = document.getElementById('user-menu');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const userEmailSpan = document.getElementById('user-email');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const logoutBtn = document.getElementById('logout-btn');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const loginForm = document.getElementById('login-form');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const registerForm = document.getElementById('register-form');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const loginError = document.getElementById('login-error');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const registerMessage = document.getElementById('register-message');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const apiKeyField = document.getElementById('api-key-field');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const copyKeyBtn = document.getElementById('copy-key-btn');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const regenerateKeyBtn = document.getElementById('regenerate-key-btn');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const planName = document.getElementById('plan-name');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const usageBar = document.getElementById('usage-bar');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const usageText = document.getElementById('usage-text');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const themeToggleBtn = document.getElementById('theme-toggle');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const darkIcon = document.getElementById('theme-toggle-dark-icon');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const lightIcon = document.getElementById('theme-toggle-light-icon');</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>document.getElementById('docs-link').href = `${API_BASE_URL}/docs`;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let state = { token: localStorage.getItem('api_token'), user: null };</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// Theme handling</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const applyTheme = () =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) &amp;&amp; window.matchMedia('(prefers-color-scheme: dark)').matches)) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>document.documentElement.classList.add('dark');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>darkIcon.classList.remove('hidden');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>lightIcon.classList.add('hidden');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>} else {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>document.documentElement.classList.remove('dark');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>darkIcon.classList.add('hidden');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>lightIcon.classList.remove('hidden');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>};</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>themeToggleBtn.addEventListener('click', () =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const isDark = document.documentElement.classList.toggle('dark');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>localStorage.setItem('theme', isDark ? 'dark' : 'light');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>applyTheme();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>function navigate() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const hash = window.location.hash || '#home';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>pages.forEach(page =&gt; page.classList.toggle('active', page.id === hash.substring(1)));</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>async function fetchWithAuth(endpoint, options = {}) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const headers = { 'Content-Type': 'application/json', ...options.headers };</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (state.token) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>headers['Authorization'] = `Bearer ${state.token}`;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const response = await fetch(`${API_BASE_URL}${endpoint}`, { ...options, headers });</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (response.status === 401) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>logout();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>return;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>return response;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>function updateUI() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (state.token &amp;&amp; state.user) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>authButtons.classList.add('hidden');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>userMenu.classList.remove('hidden');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>userMenu.classList.add('flex');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>userEmailSpan.textContent = state.user.email;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>} else {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>authButtons.classList.remove('hidden');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>userMenu.classList.add('hidden');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>async function login(email, password) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>loginError.textContent = '';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>try {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const formData = new URLSearchParams();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>formData.append('username', email);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>formData.append('password', password);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const response = await fetch(`${API_BASE_URL}/token`, {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>method: 'POST',</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>headers: { 'Content-Type': 'application/x-www-form-urlencoded' },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>body: formData,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const data = await response.json();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>if (!response.ok) throw new Error(data.detail || 'Errore di login');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>state.token = data.access_token;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>localStorage.setItem('api_token', state.token);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>await loadInitialData();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>window.location.hash = '#dashboard';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>} catch (error) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>loginError.textContent = error.message;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>async function register(name, email, password) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>registerMessage.textContent = '';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>try {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const response = await fetch(`${API_BASE_URL}/register`, {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>method: 'POST',</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>headers: { 'Content-Type': 'application/json' },</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>body: JSON.stringify({ full_name: name, email, password }),</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const data = await response.json();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>if (!response.ok) throw new Error(data.detail || 'Errore di registrazione');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>registerMessage.classList.remove('text-red-400');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>registerMessage.classList.add('text-green-400');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>registerMessage.textContent = 'Registrazione riuscita! Controlla la tua email per la verifica.';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>} catch (error) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>registerMessage.classList.remove('text-green-400');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>registerMessage.classList.add('text-red-400');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>registerMessage.textContent = error.message;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>function logout() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>state.token = null;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>state.user = null;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>localStorage.removeItem('api_token');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>updateUI();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>window.location.hash = '#home';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>async function loadInitialData() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (!state.token) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>updateUI();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>return;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>try {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const response = await fetchWithAuth('/me');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>if (response &amp;&amp; response.ok) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>state.user = await response.json();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>updateUI();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>updateDashboard();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>} else {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>logout();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>} catch (error) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>console.error('Failed to fetch user data', error);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>logout();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>async function updateDashboard() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (!state.user) return;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const keyResponse = await fetchWithAuth('/me/api-key');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if(!keyResponse || !keyResponse.ok) return;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const keyData = await keyResponse.json();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>apiKeyField.value = keyData.api_key;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>planName.textContent = state.user.subscription_plan.charAt(0).toUpperCase() + state.user.subscription_plan.slice(1);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const limits = { "free": 50, "pro": 10000, "unlimited": 50000 };</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const maxRequests = limits[state.user.subscription_plan] || 50;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const usagePercentage = (state.user.requests_today / maxRequests) * 100;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>usageBar.style.width = `${usagePercentage}%`;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>usageText.textContent = `${state.user.requests_today} / ${maxRequests} richieste`;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>async function regenerateApiKey() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (!confirm('Sei sicuro di voler rigenerare la tua API key? La vecchia smetterà di funzionare.')) return;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const response = await fetchWithAuth('/me/api-key/regenerate', { method: 'POST' });</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if(!response || !response.ok) return;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const data = await response.json();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>apiKeyField.value = data.api_key;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>alert('API Key rigenerata con successo!');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>function copyApiKey() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>apiKeyField.select();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>document.execCommand('copy');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>alert('API Key copiata!');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>window.addEventListener('hashchange', navigate);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>window.addEventListener('load', () =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>applyTheme();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>navigate();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>loginForm.addEventListener('submit', (e) =&gt; { e.preventDefault(); login(document.getElementById('login-email').value, document.getElementById('login-password').value); });</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>registerForm.addEventListener('submit', (e) =&gt; { e.preventDefault(); register(document.getElementById('register-name').value, document.getElementById('register-email').value, document.getElementById('register-password').value); });</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>logoutBtn.addEventListener('click', logout);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>regenerateKeyBtn.addEventListener('click', regenerateApiKey);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>copyKeyBtn.addEventListener('click', copyApiKey);</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>loadInitialData();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+<body class="min-h-screen font-sans">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 glass-effect">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold dark:text-white">CompleteAPI</a>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#pricing" class="nav-link">Prezzi</a>
+                <a href="#docs" class="nav-link">Documentazione</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div id="auth-buttons" class="space-x-2">
+                    <a href="#login" class="btn-secondary">Login</a>
+                    <a href="#register" class="btn-primary">Registrati</a>
+                </div>
+                <div id="user-menu" class="hidden items-center space-x-4">
+                    <span id="user-email" class="font-medium dark:text-white"></span>
+                    <a href="#dashboard" class="btn-primary">Dashboard</a>
+                    <button id="logout-btn" class="btn-secondary">Logout</button>
+                </div>
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle" class="p-2 rounded-full text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800">
+                    <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                    <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.707.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm-.707 10.607a1 1 0 010-1.414l.707-.707a1 1 0 111.414 1.414l-.707.707a1 1 0 01-1.414 0zM3 11a1 1 0 100-2H2a1 1 0 100 2h1z"></path></svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <section class="text-center">
+                <h1 class="text-4xl md:text-6xl font-bold dark:text-white leading-tight">Potenzia le Tue Applicazioni con Dati Istantanei</h1>
+                <p class="mt-4 text-lg text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">La nostra API fornisce accesso in tempo reale a dati finanziari, blockchain e molto altro. Veloce, affidabile e facile da integrare.</p>
+                <div class="mt-8"><a href="#pricing" class="btn-primary text-lg px-8 py-3">Inizia Ora - È Gratis</a></div>
+            </section>
+        </div>
+
+        <!-- Pricing Page -->
+        <div id="pricing" class="page">
+            <section>
+                <h2 class="text-3xl font-bold text-center dark:text-white">Piani Tariffari Semplici</h2>
+                <p class="text-center mt-2 text-slate-500 dark:text-slate-400">Scegli il piano perfetto per le tue esigenze.</p>
+                <div class="mt-10 grid md:grid-cols-3 gap-8">
+                    <div class="card p-8 text-center"><h3 class="text-2xl font-semibold dark:text-white">Free</h3><p class="mt-4 text-4xl font-bold dark:text-white">€0<span class="text-lg font-medium text-slate-500 dark:text-slate-400">/mese</span></p><ul class="mt-6 space-y-4 text-slate-600 dark:text-slate-300"><li>50 Richieste/giorno</li><li>Accesso agli endpoint base</li><li>Supporto via community</li></ul><a href="#register" class="mt-8 block btn-secondary w-full">Inizia Gratis</a></div>
+                    <div class="card p-8 text-center border-2 border-indigo-500 relative"><span class="absolute top-0 -translate-y-1/2 bg-indigo-500 text-white text-sm font-semibold px-3 py-1 rounded-full">Più Popolare</span><h3 class="text-2xl font-semibold dark:text-white">Pro</h3><p class="mt-4 text-4xl font-bold dark:text-white">€10<span class="text-lg font-medium text-slate-500 dark:text-slate-400">/mese</span></p><ul class="mt-6 space-y-4 text-slate-600 dark:text-slate-300"><li>10.000 Richieste/giorno</li><li>Accesso a tutti gli endpoint</li><li>Supporto prioritario via email</li></ul><a href="#register" class="mt-8 block btn-primary w-full">Passa a Pro</a></div>
+                    <div class="card p-8 text-center"><h3 class="text-2xl font-semibold dark:text-white">Unlimited</h3><p class="mt-4 text-4xl font-bold dark:text-white">€50<span class="text-lg font-medium text-slate-500 dark:text-slate-400">/mese</span></p><ul class="mt-6 space-y-4 text-slate-600 dark:text-slate-300"><li>50.000 Richieste/giorno</li><li>Accesso a tutti gli endpoint</li><li>Accesso anticipato a nuove feature</li></ul><a href="#register" class="mt-8 block btn-secondary w-full">Scegli Unlimited</a></div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Docs Page -->
+        <div id="docs" class="page">
+            <h2 class="text-3xl font-bold text-center dark:text-white">Documentazione</h2>
+            <p class="text-center mt-2 text-slate-500 dark:text-slate-400">La tua API live fornisce automaticamente una documentazione interattiva. Visita <a href="#" id="docs-link" target="_blank" class="text-indigo-500 dark:text-indigo-400 hover:underline">il tuo URL API seguito da /docs</a> per provarla.</p>
+        </div>
+
+        <!-- Login Page -->
+        <div id="login" class="page">
+            <div class="max-w-md mx-auto card p-8">
+                <h2 class="text-2xl font-bold text-white text-center">Login</h2>
+                <form id="login-form" class="mt-6 space-y-4">
+                    <div><label for="login-email" class="block text-sm font-medium text-slate-300">Email</label><input type="email" id="login-email" class="input-field" required></div>
+                    <div><label for="login-password" class="block text-sm font-medium text-slate-300">Password</label><input type="password" id="login-password" class="input-field" required></div>
+                    <button type="submit" class="btn-primary w-full">Accedi</button>
+                </form>
+                <div id="login-error" class="mt-4 text-red-400 text-center"></div>
+            </div>
+        </div>
+
+        <!-- Register Page -->
+        <div id="register" class="page">
+            <div class="max-w-md mx-auto card p-8">
+                <h2 class="text-2xl font-bold text-white text-center">Crea un Account</h2>
+                <form id="register-form" class="mt-6 space-y-4">
+                    <div><label for="register-name" class="block text-sm font-medium text-slate-300">Nome Completo</label><input type="text" id="register-name" class="input-field" required></div>
+                    <div><label for="register-email" class="block text-sm font-medium text-slate-300">Email</label><input type="email" id="register-email" class="input-field" required></div>
+                    <div><label for="register-password" class="block text-sm font-medium text-slate-300">Password</label><input type="password" id="register-password" class="input-field" required></div>
+                    <button type="submit" class="btn-primary w-full">Registrati</button>
+                </form>
+                <div id="register-message" class="mt-4 text-center"></div>
+            </div>
+        </div>
+
+        <!-- Dashboard Page -->
+        <div id="dashboard" class="page">
+            <h2 class="text-3xl font-bold dark:text-white">La Tua Dashboard</h2>
+            <div class="mt-8 grid md:grid-cols-2 gap-8">
+                <div class="card p-6">
+                    <h3 class="text-xl font-semibold dark:text-white">La Tua API Key</h3>
+                    <p class="text-slate-500 dark:text-slate-400 mt-2">Usa questa chiave nell'header `X-API-Key` delle tue richieste.</p>
+                    <div class="mt-4 flex items-center space-x-2 bg-slate-100 dark:bg-slate-900 p-3 rounded-lg">
+                        <input id="api-key-field" type="text" class="bg-transparent w-full text-slate-800 dark:text-slate-200 font-mono" readonly>
+                        <button id="copy-key-btn" class="text-slate-400 hover:text-white"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg></button>
+                    </div>
+                     <button id="regenerate-key-btn" class="mt-4 btn-secondary">Rigenera Chiave</button>
+                </div>
+                <div class="card p-6">
+                    <h3 class="text-xl font-semibold dark:text-white">Utilizzo Giornaliero</h3>
+                    <p class="text-slate-500 dark:text-slate-400 mt-2">Piano attuale: <span id="plan-name" class="font-semibold text-indigo-500 dark:text-indigo-400"></span></p>
+                    <div class="mt-4">
+                        <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-4">
+                            <div id="usage-bar" class="bg-indigo-600 h-4 rounded-full" style="width: 0%;"></div>
+                        </div>
+                        <p id="usage-text" class="text-right text-sm text-slate-500 dark:text-slate-400 mt-2">0 / 0 richieste</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const API_BASE_URL = 'https://completeapi-03it.onrender.com';
+            
+            const pages = document.querySelectorAll('.page');
+            const authButtons = document.getElementById('auth-buttons');
+            const userMenu = document.getElementById('user-menu');
+            const userEmailSpan = document.getElementById('user-email');
+            const logoutBtn = document.getElementById('logout-btn');
+            const loginForm = document.getElementById('login-form');
+            const registerForm = document.getElementById('register-form');
+            const loginError = document.getElementById('login-error');
+            const registerMessage = document.getElementById('register-message');
+            const apiKeyField = document.getElementById('api-key-field');
+            const copyKeyBtn = document.getElementById('copy-key-btn');
+            const regenerateKeyBtn = document.getElementById('regenerate-key-btn');
+            const planName = document.getElementById('plan-name');
+            const usageBar = document.getElementById('usage-bar');
+            const usageText = document.getElementById('usage-text');
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const darkIcon = document.getElementById('theme-toggle-dark-icon');
+            const lightIcon = document.getElementById('theme-toggle-light-icon');
+            
+            document.getElementById('docs-link').href = `${API_BASE_URL}/docs`;
+
+            let state = { token: localStorage.getItem('api_token'), user: null };
+
+            // Theme handling
+            const applyTheme = () => {
+                if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    document.documentElement.classList.add('dark');
+                    darkIcon.classList.remove('hidden');
+                    lightIcon.classList.add('hidden');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    darkIcon.classList.add('hidden');
+                    lightIcon.classList.remove('hidden');
+                }
+            };
+
+            themeToggleBtn.addEventListener('click', () => {
+                const isDark = document.documentElement.classList.toggle('dark');
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                applyTheme();
+            });
+
+            function navigate() {
+                const hash = window.location.hash || '#home';
+                pages.forEach(page => page.classList.toggle('active', page.id === hash.substring(1)));
+            }
+
+            async function fetchWithAuth(endpoint, options = {}) {
+                const headers = { 'Content-Type': 'application/json', ...options.headers };
+                if (state.token) {
+                    headers['Authorization'] = `Bearer ${state.token}`;
+                }
+                const response = await fetch(`${API_BASE_URL}${endpoint}`, { ...options, headers });
+                if (response.status === 401) {
+                    logout();
+                    return;
+                }
+                return response;
+            }
+
+            function updateUI() {
+                if (state.token && state.user) {
+                    authButtons.classList.add('hidden');
+                    userMenu.classList.remove('hidden');
+                    userMenu.classList.add('flex');
+                    userEmailSpan.textContent = state.user.email;
+                } else {
+                    authButtons.classList.remove('hidden');
+                    userMenu.classList.add('hidden');
+                }
+            }
+
+            async function login(email, password) {
+                loginError.textContent = '';
+                try {
+                    const formData = new URLSearchParams();
+                    formData.append('username', email);
+                    formData.append('password', password);
+                    const response = await fetch(`${API_BASE_URL}/token`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: formData,
+                    });
+                    const data = await response.json();
+                    if (!response.ok) throw new Error(data.detail || 'Errore di login');
+                    state.token = data.access_token;
+                    localStorage.setItem('api_token', state.token);
+                    await loadInitialData();
+                    window.location.hash = '#dashboard';
+                } catch (error) {
+                    loginError.textContent = error.message;
+                }
+            }
+            
+            async function register(name, email, password) {
+                registerMessage.textContent = '';
+                try {
+                    const response = await fetch(`${API_BASE_URL}/register`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ full_name: name, email, password }),
+                    });
+                    const data = await response.json();
+                    if (!response.ok) throw new Error(data.detail || 'Errore di registrazione');
+                    registerMessage.classList.remove('text-red-400');
+                    registerMessage.classList.add('text-green-400');
+                    registerMessage.textContent = 'Registrazione riuscita! Controlla la tua email per la verifica.';
+                } catch (error) {
+                    registerMessage.classList.remove('text-green-400');
+                    registerMessage.classList.add('text-red-400');
+                    registerMessage.textContent = error.message;
+                }
+            }
+
+            function logout() {
+                state.token = null;
+                state.user = null;
+                localStorage.removeItem('api_token');
+                updateUI();
+                window.location.hash = '#home';
+            }
+            
+            async function loadInitialData() {
+                if (!state.token) {
+                    updateUI();
+                    return;
+                }
+                try {
+                    const response = await fetchWithAuth('/me');
+                    if (response && response.ok) {
+                        state.user = await response.json();
+                        updateUI();
+                        updateDashboard();
+                    } else {
+                        logout();
+                    }
+                } catch (error) {
+                    console.error('Failed to fetch user data', error);
+                    logout();
+                }
+            }
+
+            async function updateDashboard() {
+                if (!state.user) return;
+                const keyResponse = await fetchWithAuth('/me/api-key');
+                if(!keyResponse || !keyResponse.ok) return;
+                const keyData = await keyResponse.json();
+                apiKeyField.value = keyData.api_key;
+                planName.textContent = state.user.subscription_plan.charAt(0).toUpperCase() + state.user.subscription_plan.slice(1);
+                const limits = { "free": 50, "pro": 10000, "unlimited": 50000 };
+                const maxRequests = limits[state.user.subscription_plan] || 50;
+                const usagePercentage = (state.user.requests_today / maxRequests) * 100;
+                usageBar.style.width = `${usagePercentage}%`;
+                usageText.textContent = `${state.user.requests_today} / ${maxRequests} richieste`;
+            }
+
+            async function regenerateApiKey() {
+                if (!confirm('Sei sicuro di voler rigenerare la tua API key? La vecchia smetterà di funzionare.')) return;
+                const response = await fetchWithAuth('/me/api-key/regenerate', { method: 'POST' });
+                if(!response || !response.ok) return;
+                const data = await response.json();
+                apiKeyField.value = data.api_key;
+                alert('API Key rigenerata con successo!');
+            }
+            
+            function copyApiKey() {
+                apiKeyField.select();
+                document.execCommand('copy');
+                alert('API Key copiata!');
+            }
+
+            window.addEventListener('hashchange', navigate);
+            window.addEventListener('load', () => {
+                applyTheme();
+                navigate();
+            });
+            
+            loginForm.addEventListener('submit', (e) => { e.preventDefault(); login(document.getElementById('login-email').value, document.getElementById('login-password').value); });
+            registerForm.addEventListener('submit', (e) => { e.preventDefault(); register(document.getElementById('register-name').value, document.getElementById('register-email').value, document.getElementById('register-password').value); });
+            logoutBtn.addEventListener('click', logout);
+            regenerateKeyBtn.addEventListener('click', regenerateApiKey);
+            copyKeyBtn.addEventListener('click', copyApiKey);
+
+            loadInitialData();
+        });
+    </script>
 </body>
 </html>
